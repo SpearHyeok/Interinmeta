@@ -15,7 +15,7 @@ function App() {
           </div>
           <div className='prd_name'>상품 이름</div>
           <div className='prd_description'>상품 설명</div>
-          <div className='prd_price'>가격: 999원</div>
+          <div className='prd_price'>가격: 1999원</div>
         </div>
       </div>
     </div>
