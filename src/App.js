@@ -1,11 +1,22 @@
+// App.js
 import React, { useState } from 'react';
-import ProductCard from './ProductCard';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import Header from './Header';
+import ProductListPage from './ProductListPage';
+import AddCardPage from './AddCardPage';
+import MyCardListPage from './MyCardListPage';
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 function App() {
+  const [cards, setCards] = useState([]);
+
+  const handleAddCard = (card) => {
+    setCards((prevCards) => [...prevCards, card]);
+  };
   const [cartItems, setCartItems] = useState([]);
+  const location = useLocation();
 
   const products = [
     {
@@ -13,14 +24,14 @@ function App() {
       name: '브랜드A',
       description: '편안하고 착용감이 좋은 신발',
       price: 35000,
-      image: './img/11384888983_l.png'
+      image: '/img/11384888983_l.png'
     },
     {
       id: 2,
       name: '브랜드A',
       description: '밝은 컬러가 매력적인 신발',
       price: 25000,
-      image: './img/11384888983_l.png'
+      image: '/img/11384888983_l.png'
     },
     {
       id: 3,
@@ -56,33 +67,18 @@ function App() {
     setCartItems([...cartItems, product]);
   };
 
+  const showHeader = location.pathname == '/';
+
   return (
-    <div>
-      <header className="Header">
-        <div className="Cart">
-          <i className="fas fa-shopping-bag"></i>
-          {cartItems.length > 0 && (
-            <span className="cart-count">{cartItems.length}</span>
-          )}
-        </div>
-      </header>
-      <div className="Subject">
-        <h1>신발 상품 목록</h1>
-        <p>현재 {products.length}개의 상품이 있습니다.</p>
-      </div>
-      <div className="Products">
-        {products.map(product => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onAddToCart={handleAddToCart}
-            isInCart={cartItems.some(item => item.id === product.id)}
-          />
-        ))}
-      </div>
-    </div>
+    <>
+       {showHeader && <Header cartItems={cartItems} />}
+      <Routes>
+        <Route path="/add-card" element={<AddCardPage onAddCard={handleAddCard}/>} />
+        <Route path="/" element={<ProductListPage products={products} handleAddToCart={handleAddToCart} cartItems={cartItems} />} />
+        <Route path="/my-cards" element={<MyCardListPage cards={cards} />} />
+      </Routes>
+    </>
   );
 }
-
 
 export default App;
