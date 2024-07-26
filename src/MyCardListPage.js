@@ -9,7 +9,7 @@ const MyCardListPage = ({cards}) => {
     <div className="my-card-list-page">
       <header className="header">
         <h2>보유카드</h2>
-        <button className="close-button" onClick={() => navigate('/')}>X</button>
+        <button className="close-button" onClick={() => navigate('/Interninmeta')}>X</button>
       </header>
       <div className="content">
       <div className="card-list">

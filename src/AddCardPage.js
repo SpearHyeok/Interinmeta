@@ -31,7 +31,7 @@ const AddCardPage = ({ onAddCard }) => {
   return (
     <div className="add-card-page">
       <header className="header">
-        <button className="close-button" onClick={() => navigate('/')}>X</button>
+        <button className="close-button" onClick={() => navigate('/Interninmeta')}>X</button>
         <h2>카드 추가</h2>
       </header>
       <div className="card-image">

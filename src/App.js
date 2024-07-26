@@ -24,14 +24,14 @@ function App() {
       name: '브랜드A',
       description: '편안하고 착용감이 좋은 신발',
       price: 35000,
-      image: '/img/11384888983_l.png'
+      image: './img/11384888983_l.png'
     },
     {
       id: 2,
       name: '브랜드A',
       description: '밝은 컬러가 매력적인 신발',
       price: 25000,
-      image: '/img/11384888983_l.png'
+      image: './img/11384888983_l.png'
     },
     {
       id: 3,
