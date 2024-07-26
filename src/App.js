@@ -67,14 +67,14 @@ function App() {
     setCartItems([...cartItems, product]);
   };
 
-  const showHeader = location.pathname == '/';
+  const showHeader = location.pathname == '/Interninmeta';
 
   return (
     <>
        {showHeader && <Header cartItems={cartItems} />}
       <Routes>
         <Route path="/add-card" element={<AddCardPage onAddCard={handleAddCard}/>} />
-        <Route path="/" element={<ProductListPage products={products} handleAddToCart={handleAddToCart} cartItems={cartItems} />} />
+        <Route path="/Interninmeta" element={<ProductListPage products={products} handleAddToCart={handleAddToCart} cartItems={cartItems} />} />
         <Route path="/my-cards" element={<MyCardListPage cards={cards} />} />
       </Routes>
     </>
