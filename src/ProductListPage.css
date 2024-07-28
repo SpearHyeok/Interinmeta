@@ -1,0 +1,21 @@
+/* ProductListPage.css */
+
+.Subject {
+    margin-top: 80px; /* Adjusted for fixed header */
+    margin-left: 10px;
+    text-align: left;
+  }
+  
+  .Subject p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .Products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px; /* Adjusted for fixed header */
+  }
+  

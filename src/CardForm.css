@@ -1,0 +1,87 @@
+/* CardForm.css */
+
+.card-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .card-form .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .card-form .field-group.inline {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .card-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f7f7f7;
+  }
+  
+  .card-form input::placeholder {
+    color: #bbb;
+  }
+  
+  .card-form label {
+    font-size: 0.875rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .card-form .alert-message {
+    color: red;
+    font-size: 0.75rem;
+    margin-top: 5px;
+  }
+  
+  .card-form .inline .field {
+    flex: 1;
+  }
+  
+  .card-form .field-group.inline .field input {
+    width: 100%;
+  }
+  
+  .card-form .help-icon {
+    margin-left: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #888;
+  }
+  
+  .card-form .help-icon:hover {
+    color: #555;
+  }
+  
+  .submit-button {
+    padding: 15px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .submit-button:hover {
+    background-color: #333;
+  }
+  
+  .card-form input[type='password'] {
+    width: 25%;
+    text-align: center;
+  }
+  
