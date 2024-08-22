@@ -12,11 +12,12 @@ const AddCardPage = ({ onAddCard }) => {
   const [cvc, setCvc] = useState('');
   const [pwd, setPwd] = useState('');
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newCard = { cardNumber, month, year, name, cvc, pwd };
     onAddCard(newCard);
-    navigate('/');
+    navigate('/my-cards');
   };
 
   const formatCardNumber = (number) => {
