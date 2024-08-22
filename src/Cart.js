@@ -8,7 +8,8 @@ function Cart({ cartItems }) {
   const navigate = useNavigate();
 
   const handleCheckout = () => {
-    navigate('/my-cards');
+    const totalPrice = TotalPrice() + deliveryFee;
+    navigate('/my-cards', { state: { totalPrice } });
   };
 
   const increaseQuantity = (id) => {
@@ -23,7 +24,9 @@ function Cart({ cartItems }) {
   const decreaseQuantity = (id) => {
     setGroupedItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+        item.id === id && item.quantity > 0
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
       )
     );
   };

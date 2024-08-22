@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CardForm from './CardForm';
 import './AddCardPage.css';
 
 const AddCardPage = ({ onAddCard }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { totalPrice } = location.state || { totalPrice: 0 };
+
   const [cardNumber, setCardNumber] = useState('');
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const [name, setName] = useState('');
   const [cvc, setCvc] = useState('');
   const [pwd, setPwd] = useState('');
+  
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newCard = { cardNumber, month, year, name, cvc, pwd };
     onAddCard(newCard);
-    navigate('/my-cards');
+    navigate('/my-cards', { state: { totalPrice } });
   };
 
   const formatCardNumber = (number) => {

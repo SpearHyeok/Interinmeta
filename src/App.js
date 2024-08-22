@@ -6,6 +6,7 @@ import ProductListPage from './ProductListPage';
 import AddCardPage from './AddCardPage';
 import MyCardListPage from './MyCardListPage';
 import Cart from './Cart';
+import PaymentConfirmationPage from './PaymentConfirmationPage';
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -79,6 +80,7 @@ function App() {
         <Route path="/Interninmeta" element={<ProductListPage products={products} handleAddToCart={handleAddToCart} cartItems={cartItems} />} />
         <Route path="/my-cards" element={<MyCardListPage cards={cards} />} />
         <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+        <Route path="/payment-confirmation" element={<PaymentConfirmationPage />} />
       </Routes>
     </>
   );

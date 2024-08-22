@@ -1,9 +1,15 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useLocation, useNavigate } from 'react-router-dom';
 import './MyCardListPage.css';
 
 const MyCardListPage = ({cards}) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { totalPrice } = location.state || { totalPrice: 0 };
+
+  const handlePayment = () => {
+    navigate('/payment-confirmation', { state: { totalPrice } });
+  };
 
   return (
     <div className="my-card-list-page">
@@ -25,12 +31,12 @@ const MyCardListPage = ({cards}) => {
                 </div>
               </div>
             </div>
-            <button className="card-button">이 카드로 결제하기</button>
+            <button className="card-button" onClick={handlePayment}>이 카드로 결제하기</button>
           </div>
         ))}
     </div>
         <p>새로운 카드를 등록해주세요.</p>
-        <div className="card-placeholder" onClick={() => navigate('/add-card')}>
+        <div className="card-placeholder" onClick={() => navigate('/add-card', { state: { totalPrice }}) }>
           <span className="plus-sign">+</span>
         </div>
       </div>
