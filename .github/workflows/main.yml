@@ -1,0 +1,15 @@
+name: internwflow
+	
+  on:
+    push:
+      branches: [ comp ]
+    pull_request:
+      branches: [ comp ]
+	
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+	
+      steps:
+	npm run build
+        npm run deploy
